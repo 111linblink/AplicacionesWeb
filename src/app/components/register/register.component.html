@@ -1,1 +1,59 @@
-<p>register works!</p>
+<form [formGroup]="registerForm">
+    <p-card header="Registrarse" [style]="{width: '400px'}">
+        <div class="field">
+            <label for="name">Nombre</label>
+            <input 
+            type="text" 
+            pInputText 
+            class="w-full"
+            placeholder="Ingrese su nombre"
+            formControlName="name"
+            />
+        </div>
+
+        <small *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched )" class="block p-error">
+            <div *ngIf="registerForm.get('name')?.hasError('required')">Se requiere nombre</div>
+        </small>
+
+        <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input 
+            type="email" 
+            pInputText 
+            class="w-full"
+            placeholder="Ingrese su correo electrónico"
+            formControlName="email"
+            />
+        </div>
+
+        <small *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched )" class="block p-error">
+            <div *ngIf="registerForm.get('email')?.hasError('required')">Se requiere correo electrónico</div>
+            <div *ngIf="registerForm.get('email')?.hasError('email')">Correo electrónico incorrecto</div>
+        </small>
+
+        <div class="field">
+            <label for="password">Contraseña</label>
+            <p-password [toggleMask]="true" formControlName="password"></p-password>
+        </div>
+
+
+        <div class="field">
+            <label for="password">Confirmar contraseña</label>
+            <p-password [toggleMask]="true" formControlName="password"></p-password>
+        </div>
+
+        <small *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched )" class="block p-error">
+            <div *ngIf="registerForm.get('password')?.hasError('required')">Se requiere contraseña</div>
+        </small>
+
+        <p-button 
+        label="Registrarse"
+        styleClass="w-full"
+        [disabled]="registerForm.invalid">
+        </p-button>
+
+        <div class="mt-2">
+            ¿Ya tienes cuenta? <a routerLink="/login">Ingresa</a>
+        </div>
+    </p-card>
+</form>
