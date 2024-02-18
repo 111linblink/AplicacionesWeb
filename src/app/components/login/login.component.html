@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <p-card header="Ingresar" [style]="{width:'400px'}">
         <div class="field">
             <label for="email">Correo Electrónico</label>
@@ -8,17 +8,39 @@
         </div>
 
         <small *ngIf="email.invalid && (email.dirty || email.touched)" class=""block p-error>
-          <div *ngIf="email.hasError('required')">Se requiere Email</div>
-          <div *ngIf="email.hasError('email')">Correo Electrónico</div>
+          <div *ngIf="email.errors?.['required']">Se requiere Email</div>
+          <div *ngIf="email.errors?.['email']">El email debe ser valido</div>
         </small>
 
         <div class="field">
             <label for="password">Contraseña</label>
-            <p-password  [toggleMask]="true" class="ng-invalid ng-dirty"></p-password>
-        </div>
+            <div class="password-input">
+                <input
+                  #passwordInput
+                  type="password"
+                  pInputText
+                  formControlName="password"
+                  class="w-full password-field"
+                  name="password"
+                  placeholder="Escribe tu contraseña"
+                />
+                <button type="button" pButton icon="pi pi-eye" class="password-toggle" (click)="togglePasswordVisibility(passwordInput)">
+                </button>
+            </div>
+        </div>        
+        
+
+        <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+            <div *ngIf="password.errors?.['required']">Contraseña requerida.</div>
+        </small>
 
         <div class="field">
-            <p-button label="Ingresar" severity="help" class="w-full"></p-button>
+            <p-button 
+            label="Ingresar" 
+            styleClass="w-full" 
+            [disabled] = "loginForm.invalid"
+            type="submit"
+            ></p-button>
         </div>
 
         <div class = "mt-2">
