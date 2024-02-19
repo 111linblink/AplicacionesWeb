@@ -3,16 +3,17 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../../../services/auth.services';
+import * as bcrypt from 'bcryptjs'; // Importa la biblioteca de encriptación
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
   loginForm = this.fb.group({
-    email: ['',[Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   })
 
@@ -35,22 +36,33 @@ export class LoginComponent {
   }
 
   login(){
-    console.log('login')
     const {email, password} = this.loginForm.value;
 
-    this.authService.getUserByEmail(email as string).subscribe(
-      response => {
-        if(response.length > 0 && response[0].password === password){
-          sessionStorage.setItem('email', email as string);
-          this.router.navigate(['/home']);
-        }else{
-          this.messageService.add({severity: 'error', summary: 'Error', detail: 'Email o Contraseña Incorrectos'})
-        }
-      },
+    // Verifica que la contraseña no sea null ni undefined antes de continuar
+    if (password) {
+      this.authService.getUserByEmail(email as string).subscribe(
+        response => {
+          if(response.length > 0){
+            // Compara la contraseña ingresada con la contraseña almacenada en la base de datos
+            const user = response[0];
+            const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+            if(isPasswordCorrect){
+              sessionStorage.setItem('email', email as string);
+              this.router.navigate(['/home']);
+            } else {
+              this.messageService.add({severity: 'error', summary: 'Error', detail: 'Email o Contraseña Incorrectos'});
+            }
+          } else {
+            this.messageService.add({severity: 'error', summary: 'Error', detail: 'Email o Contraseña Incorrectos'});
+          }
+        },
         error =>{
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email o contraseña incorrectos'})
+          this.messageService.add({severity: 'error', summary: 'Error', detail: 'Email o contraseña incorrectos'});
         }
-    )
-      }
+      )
+    } else {
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Ingrese una contraseña'});
     }
-      
+  }
+}
+

@@ -5,6 +5,18 @@
       "email": "cabrera.karen.vidal.8@gmail.com",
       "password": "$2a$10$IuQ/PH51x1Pog6X7na.g1Ougk.bXrnlCVcl2B7/mnFG0VWU2POtiC",
       "id": 1
+    },
+    {
+      "fullName": "Santiago Alexander Maldonado Vidal",
+      "email": "santi@gmail.com",
+      "password": "$2a$10$8VUFu1roOrblemwSBUHpbelUMYASFs6IXgadeNY1m2EOYk3UWn7z.",
+      "id": 2
+    },
+    {
+      "fullName": "Axel Isaac Cabrera Vidal",
+      "email": "axel@gmail.com",
+      "password": "$2a$10$3jWu7ooQIMstT6gv1qLu5.RqW7IGvvkPyKF0sJjd7AI1cTq0UyQKm",
+      "id": 3
     }
   ]
 }
