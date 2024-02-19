@@ -17,6 +17,12 @@
       "email": "axel@gmail.com",
       "password": "$2a$10$3jWu7ooQIMstT6gv1qLu5.RqW7IGvvkPyKF0sJjd7AI1cTq0UyQKm",
       "id": 3
+    },
+    {
+      "fullName": "Fernando Moncada Juarez",
+      "email": "fer@gmail.com",
+      "password": "$2a$10$1xBGDdbY8ntUUyuVJkvuBuC1Y2TbdZHRknDc7REwoaB.tr0vyLWwW",
+      "id": 4
     }
   ]
 }

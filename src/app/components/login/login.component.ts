@@ -38,12 +38,10 @@ export class LoginComponent {
   login(){
     const {email, password} = this.loginForm.value;
 
-    // Verifica que la contraseña no sea null ni undefined antes de continuar
     if (password) {
       this.authService.getUserByEmail(email as string).subscribe(
         response => {
           if(response.length > 0){
-            // Compara la contraseña ingresada con la contraseña almacenada en la base de datos
             const user = response[0];
             const isPasswordCorrect = bcrypt.compareSync(password, user.password);
             if(isPasswordCorrect){
