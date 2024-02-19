@@ -34,7 +34,7 @@ git clone https://github.com/111linblink/AplicacionesWeb.git
 ```
 - o directamente desde .code
 
-## ejecutar JsonServer
+## Ejecutar JsonServer
 - Para la ejecución de jsonServer se ejecutará el comando
 ```angular
   json-server --watch db.json
