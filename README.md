@@ -1,27 +1,39 @@
-# LinReviewGds0551
+# Login y registro en Angular 
+- Este proyecto cuenta con un registro y login utilizando json Server, esta hecho en angular.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+## Clonar el Repositorio
 
-## Development server
+Para clonar este repositorio en tu máquina local, se debe ejecutar el siguiente comando en tu terminal:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+git clone https://github.com/111linblink/AplicacionesWeb.git
 
-## Code scaffolding
+-Se debe tener instalado git, para poder ejecutar este comando
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+## Instalación
+- Como instalar y utilizar el proyecto
 
-## Build
+1. Navega hasta la carpeta del proyecto:
+   ```bash
+   cd nombre-de-la-carpeta
+   ```
+2. Se instalan las dependencias en caso de no tenerlas
+   ```bash
+   npm install
+   ```
+## Uso 
+- Para ejecutar el proyecto, utiliza el siguiente comando:
+ ```bash
+  npm start
+```
+- o directamente desde .code
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ejecutar JsonServer
+- Para la ejecución de jsonServer se ejecutará el comando
+```angular
+  json server --watch db.json
+```
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
