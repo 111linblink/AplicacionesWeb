@@ -30,7 +30,7 @@ git clone https://github.com/111linblink/AplicacionesWeb.git
 ## Uso 
 - Para ejecutar el proyecto, utiliza el siguiente comando:
  ```bash
-  npm start
+  ng s --open
 ```
 - o directamente desde .code
 
