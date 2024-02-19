@@ -22,17 +22,22 @@ git clone https://github.com/111linblink/AplicacionesWeb.git
    ```bash
    npm install
    ```
+3. También para al encriptación de contraseñas se debe instalar lo siguiente
+   ```angular
+   npm install bcryptjs
+   ```
+   
 ## Uso 
 - Para ejecutar el proyecto, utiliza el siguiente comando:
  ```bash
-  npm start
+  ng s --open
 ```
 - o directamente desde .code
 
-## ejecutar JsonServer
+## Ejecutar JsonServer
 - Para la ejecución de jsonServer se ejecutará el comando
 ```angular
-  json server --watch db.json
+  json-server --watch db.json
 ```
 
 
